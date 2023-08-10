@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Login from "./components/Login";
 import CreateAccount from "./components/CreateAccount";
-import "./App.css"; // Import the CSS file for styling
+import "./App.css"; 
 
 const App = () => {
   return (
@@ -15,8 +15,8 @@ const App = () => {
         </div>
       </div>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/create" element={<CreateAccount />} />
+        <Route path="/login" className= "status" element={<Login />} />
+        <Route path="/create" className = "status" element={<CreateAccount />} />
       </Routes>
     </Router>
   );

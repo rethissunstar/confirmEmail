@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 import bcrypt from "bcrypt";
-import axios from "axios";
+//import axios from "axios";
 
 const userSchema = new Schema({
   fName: {
@@ -109,41 +109,6 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-userSchema.pre('save', async function (next) {
-  if (this.isModified('address1') || this.isNew) {
-    try {
-      const apiKey = 'AIzaSyAMVyhE-qzphAZZSzsyryqRo7VtTpkwGeY';
 
-      const addressLines = [this.address1];
-      if (this.address2) {
-        addressLines.push(this.address2);
-      }
-
-      const requestData = {
-        address: {
-          regionCode: this.country,
-          addressLines: addressLines,
-        },
-        enableUspsCass: true,
-      };
-
-      const response = await axios.post(
-        `https://addressvalidation.googleapis.com/v1:validateAddress?key=${apiKey}`,
-        requestData
-      );
-
-      if (response.data.isValid) {
-        this.addressValidation = true;
-      } else {
-        this.addressValidation = false;
-        console.error('Address validation failed:', response.data.errorMessage);
-      }
-    } catch (error) {
-      console.error('Error validating address:', error);
-    }
-  }
-
-  next();
-});
 
 export default User;

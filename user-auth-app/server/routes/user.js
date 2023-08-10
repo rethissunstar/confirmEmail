@@ -3,7 +3,8 @@ import User from "../models/User.js";
 
 const router = express.Router();
 
-router.get("/:email", async (req, res) => {
+ 
+  router.get("/:email", async (req, res) => {
     const userEmail = req.params.email;
   
     try {
@@ -18,16 +19,19 @@ router.get("/:email", async (req, res) => {
       res.status(500).json({ message: "Server error" });
     }
   });
-  
 
-router.post("/", async (req, res) => {
+  router.post("/", async (req, res) => {
     try {
-      const newUser = new User(req.body);
-      await newUser.save();
-      res.status(201).json(newUser);
+      const newUser = new User(req.body);            
+      if (newUser.addressValidation) {      
+        await newUser.save();
+        res.status(201).json(newUser);
+      } else {
+            res.status(400).json({ message: "Address validation failed" });
+      }
     } catch (error) {
       res.status(400).json({ message: "Invalid data" });
-    }
+     }
   });
 
 export default router;
