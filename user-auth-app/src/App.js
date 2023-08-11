@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Login from "./components/Login";
-import CreateAccount from "./components/CreateAccount";
+import Login from "./components/Login.js";
+import CreateAccount from "./components/CreateAccount.js";
 import "./App.css"; 
 
 const App = () => {

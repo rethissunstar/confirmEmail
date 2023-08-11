@@ -1,5 +1,5 @@
 import React from "react";
-import CreateAccountForm from "./CreateAccountForm";
+import CreateAccountForm from "./CreateAccountForm.js";
 
 const CreateAccount = () => {
   return (
