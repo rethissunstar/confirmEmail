@@ -20,7 +20,7 @@ const router = express.Router();
     }
   });
 
-  router.post("/", async (req, res) => {
+  router.post("/create", async (req, res) => {
     try {
       const newUser = new User(req.body);            
       if (newUser.addressValidation) {      
