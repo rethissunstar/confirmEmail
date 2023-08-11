@@ -9,7 +9,7 @@
 // import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 import db from "../config/db.js";
-import { User } from "../../models/User.js";
+import { User } from "../../models/index.js";
 import userData from "./userData.json" assert {type: "json"};
 import bcrypt from "bcrypt";
 

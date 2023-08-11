@@ -74,10 +74,15 @@ const userSchema = new Schema({
       message: "Password must be at least 8 characters long",
     },
   },
-  addressValidation: {
-    type: Boolean,
-    default: false,
-  },
+  emailValid: {
+    Type: String,
+    required: true,
+    default: "pending",
+   },
+  // addressValidation: {
+  //   type: Boolean,
+  //   default: false,
+  // },
 });
 
 const User = model("User", userSchema);
